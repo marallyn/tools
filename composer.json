@@ -1,0 +1,20 @@
+{
+    "name": "marallyn/tools",
+    "description": "Super cool software tools",
+    "type": "project",
+    "require": {
+        "ramsey/uuid": "^4.7.5",
+        "symfony/console": "^6.4.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Marallyn\\Command\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jeff Martin",
+            "email": "jeff@dsrwp.com"
+        }
+    ]
+}
