@@ -1,0 +1,29 @@
+<?php
+define("BLACK", "\033[0;30m");
+define("BLUE", "\033[0;34m");
+define("BLUE_BOLD", "\033[1;34m");
+define("CYAN", "\033[0;36m");
+define("CYAN_BOLD", "\033[1;36m");
+define("GRAY_DARK", "\033[1;30m");
+define("GREEN", "\033[0;32m");
+define("GREEN_BOLD", "\033[1;32m");
+define("PURPLE", "\033[0;35m");
+define("PURPLE_BOLD", "\033[1;35m");
+define("RESET", "\033[00m");
+define("RED", "\033[0;31m");
+define("RED_BOLD", "\033[1;31m");
+define("WHITE", "\033[0;37m");
+define("WHITE_BOLD", "\033[1;37m");
+define("YELLOW", "\033[0;33m");
+define("YELLOW_BOLD", "\033[1;33m");
+define("WHITE_ON_RED", "\033[0;37;41m");
+# Background
+define("ON_BLACK", "\033[40m");
+define("ON_RED", "\033[41m");
+define("ON_GREEN", "\033[42m");
+define("ON_YELLOW", "\033[43m");
+define("ON_BLUE", "\033[44m");
+define("ON_PURPLE", "\033[45m");
+define("ON_CYAN", "\033[46m");
+define("ON_WHITE", "\033[47m");
+    

@@ -11,7 +11,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\Question;
 
 #[AsCommand(
-    name: 'uuid',
+    name: 'app:uuid',
     description: 'Generate some uuids.',
     hidden: false,
 )]

@@ -7,8 +7,9 @@ use Symfony\Component\Console\Application;
 
 $application = new Application('tools', '1.0.0');
 
+$application->add(new Command\AuthTokenCommand());
+$application->add(new Command\SunTimesCommand());
 $application->add(new Command\UnicodeCommand());
 $application->add(new Command\UuidCommand());
-$application->add(new Command\AuthTokenCommand());
 
 $application->run();

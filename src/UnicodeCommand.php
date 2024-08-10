@@ -8,7 +8,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\Question;
 
 #[AsCommand(
-    name: 'unicode:decode',
+    name: 'app:unicode-decode',
     description: 'Decodes an escaped Unicode string.',
     hidden: false,
 )]
