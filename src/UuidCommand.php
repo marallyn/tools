@@ -5,6 +5,7 @@ use Throwable;
 use Ramsey\Uuid\Uuid;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Helper\QuestionHelper;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -35,6 +36,7 @@ class UuidCommand extends Command
 
     protected function interact(InputInterface $input, OutputInterface $output)
     {
+        /** @var QuestionHelper $helper */
         $helper = $this->getHelper('question');
 
         $this->version = intval($input->getOption('uuidversion'));

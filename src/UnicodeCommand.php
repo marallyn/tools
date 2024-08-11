@@ -3,10 +3,10 @@ namespace Marallyn\Command;
 
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Helper\QuestionHelper;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\Question;
-
 #[AsCommand(
     name: 'app:unicode-decode',
     description: 'Decodes an escaped Unicode string.',
@@ -29,6 +29,7 @@ class UnicodeCommand extends Command
             return $answer;
         });
 
+        /** @var QuestionHelper $helper */
         $helper = $this->getHelper('question');
         $unicodeString = $helper->ask($input, $output, $question);
 
