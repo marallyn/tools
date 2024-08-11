@@ -33,7 +33,7 @@ class UnicodeCommand extends Command
         $helper = $this->getHelper('question');
         $unicodeString = $helper->ask($input, $output, $question);
 
-        $decodedString = json_decode('["' . $unicodeString . '"]', JSON_UNESCAPED_UNICODE)[0];
+        $decodedString = json_decode('["' . $unicodeString . '"]', flags: JSON_UNESCAPED_UNICODE)[0];
 
         $output->writeln($decodedString);
         return Command::SUCCESS;
