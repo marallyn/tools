@@ -65,7 +65,7 @@ class SunTimesCommand extends Command
         
             foreach ($this->sunKeys as $sunKey) {
                 $timeObj = new DateTime('', $timeZone);
-                $timeObj->setTimestamp($sunTimes[$sunKey]);
+                $timeObj->setTimestamp(intval($sunTimes[$sunKey]));
         
                 $secondsDifference = $sunTimes[$sunKey] - $sunTimesY[$sunKey] - 24 * 3600;
         
@@ -91,15 +91,16 @@ class SunTimesCommand extends Command
                     )
                 );
             }
+
             // assume the difference is only a matter of minutes
-            $usefulStart = (new DateTime('', $timeZone))->setTimestamp($sunTimes['civil_twilight_begin']);
-            $usefulEnd = (new DateTime('', $timeZone))->setTimestamp($sunTimes['civil_twilight_end']);
+            $usefulStart = (new DateTime('', $timeZone))->setTimestamp(intval($sunTimes['civil_twilight_begin']));
+            $usefulEnd = (new DateTime('', $timeZone))->setTimestamp(intval($sunTimes['civil_twilight_end']));
             $usefulInterval = $usefulEnd->diff($usefulStart);
             $usefulIntervalSeconds = $usefulInterval->i * 60 + $usefulInterval->s;
         
             // assume the difference is only a matter of minutes
-            $usefulStartY = (new DateTime('', $timeZone))->setTimestamp($sunTimesY['civil_twilight_begin']);
-            $usefulEndY = (new DateTime('', $timeZone))->setTimestamp($sunTimesY['civil_twilight_end']);
+            $usefulStartY = (new DateTime('', $timeZone))->setTimestamp(intval($sunTimesY['civil_twilight_begin']));
+            $usefulEndY = (new DateTime('', $timeZone))->setTimestamp(intval($sunTimesY['civil_twilight_end']));
             $usefulIntervalY = $usefulEndY->diff($usefulStartY);
             $usefulIntervalSecondsY = $usefulIntervalY->i * 60 + $usefulIntervalY->s;
         
