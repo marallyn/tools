@@ -19,71 +19,16 @@ include "includes/cli-colors.php";
 
 class SunTimesCommand extends Command
 {
-    private array $sunKeys = [
-        // 'astronomical_twilight_begin',
-        // 'nautical_twilight_begin',
-        'civil_twilight_begin',
-        'sunrise',
-        'transit',
-        'sunset',
-        'civil_twilight_end',
-        // 'nautical_twilight_end',
-        // 'astronomical_twilight_end',
-    ];
-
-    private array $locations = [
-        'nome' => [
-            'name' => 'Nome',
-            'lat' => 64.530349,
-            'lng' => -165.393961,
-            'timeZone' => 'America/Anchorage',
-        ],
-        'detroit' => [
-            'name' => 'Detroit',
-            'lat' => 42.369294,
-            'lng' => -83.105351,
-            'timeZone' => 'America/New_York',
-        ],
-        'quito' => [
-            'name' => 'Quito',
-            'lat' => -0.220000,
-            'lng' => -78.512500,
-            'timeZone' => 'America/New_York',
-        ],
-        'mps' => [
-            'name' => 'MPS EST',
-            'lat' => 12.9658227,
-            'lng' => 77.5979161,
-            'timeZone' => 'America/New_York',
-        ],
-        'mpsi' => [
-            'name' => 'MPS IST',
-            'lat' => 12.9658227,
-            'lng' => 77.5979161,
-            'timeZone' => 'Asia/Kolkata',
-        ],
-        // 'dodo' => [
-        //     'name' => "Dodo's house",
-        //     'lat' => 40.908116,
-        //     'lng' => -81.343217,
-        //     'timeZone' => 'America/New_York',
-        // ],
-        // 'rsc' => [
-        //     'name' => 'Research Square',
-        //     'lat' => 35.997846,
-        //     'lng' => -78.906385,
-        //     'timeZone' => 'America/New_York',
-        // ],
-        'home' => [
-            'name' => 'Home',
-            'lat' => 32.950175,
-            'lng' => -84.970118,
-            'timeZone' => 'America/New_York',
-        ],
-    ];
+    /** @var non-empty-array<string> */
+    private array $sunKeys;
     
+    /** @var non-empty-array<string, array<string, mixed>> */
+    private array $locations;
+
     protected function configure(): void
     {
+        $this->locations = $this->getLocations();
+        $this->sunKeys = $this->getSunKeys();
     }
 
     protected function initialize(InputInterface $input, OutputInterface $output)
@@ -184,5 +129,76 @@ class SunTimesCommand extends Command
             );
         }
         return Command::SUCCESS;
+    }
+
+    /** @return non-empty-array<string, array<string, mixed>> */
+    private function getLocations(): array
+    {
+        return [
+            'nome' => [
+                'name' => 'Nome',
+                'lat' => 64.530349,
+                'lng' => -165.393961,
+                'timeZone' => 'America/Anchorage',
+            ],
+            'detroit' => [
+                'name' => 'Detroit',
+                'lat' => 42.369294,
+                'lng' => -83.105351,
+                'timeZone' => 'America/New_York',
+            ],
+            'quito' => [
+                'name' => 'Quito',
+                'lat' => -0.220000,
+                'lng' => -78.512500,
+                'timeZone' => 'America/New_York',
+            ],
+            'mps' => [
+                'name' => 'MPS EST',
+                'lat' => 12.9658227,
+                'lng' => 77.5979161,
+                'timeZone' => 'America/New_York',
+            ],
+            'mpsi' => [
+                'name' => 'MPS IST',
+                'lat' => 12.9658227,
+                'lng' => 77.5979161,
+                'timeZone' => 'Asia/Kolkata',
+            ],
+            // 'dodo' => [
+            //     'name' => "Dodo's house",
+            //     'lat' => 40.908116,
+            //     'lng' => -81.343217,
+            //     'timeZone' => 'America/New_York',
+            // ],
+            // 'rsc' => [
+            //     'name' => 'Research Square',
+            //     'lat' => 35.997846,
+            //     'lng' => -78.906385,
+            //     'timeZone' => 'America/New_York',
+            // ],
+            'home' => [
+                'name' => 'Home',
+                'lat' => 32.950175,
+                'lng' => -84.970118,
+                'timeZone' => 'America/New_York',
+            ],
+        ];
+    }
+
+    /** @return non-empty-array<string> */
+    private function getSunKeys(): array
+    {
+        return [
+            // 'astronomical_twilight_begin',
+            // 'nautical_twilight_begin',
+            'civil_twilight_begin',
+            'sunrise',
+            'transit',
+            'sunset',
+            'civil_twilight_end',
+            // 'nautical_twilight_end',
+            // 'astronomical_twilight_end',
+        ];
     }
 }
