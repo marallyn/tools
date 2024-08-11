@@ -16,5 +16,10 @@
             "name": "Jeff Martin",
             "email": "jeff@dsrwp.com"
         }
-    ]
+    ],
+    "require-dev": {
+        "phpstan/phpstan": "^1.11",
+        "friendsofphp/php-cs-fixer": "^3.62",
+        "rector/rector": "^1.2"
+    }
 }

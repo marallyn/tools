@@ -1,0 +1,34 @@
+#!/bin/bash
+source colors.sh
+
+all_tests=(
+    "php-cs-fixer"
+    "phpstan"
+    "rector"
+)
+
+script_directory="$(dirname "$0")"
+
+run_test() {
+    local test_commands=("$@") # Capture all arguments into an array
+    echo "script_directory: $script_directory"
+    for test_command in "${test_commands[@]}"; do
+        local test_script="$script_directory/$test_command.sh"
+
+        if [ -f "$test_script" ]; then # Check if the script file exists
+            cecho yellow "Running $test_script..."
+
+            "$test_script"
+        else
+            cecho red "Error: Test script '$test_script' not found."
+        fi
+    done
+}
+
+if [ -z "$1" ]; then
+    tests=("${all_tests[@]}")
+else
+    tests=("$@")
+fi
+
+run_test "${tests[@]}"

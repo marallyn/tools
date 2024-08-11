@@ -23,7 +23,7 @@ class UnicodeCommand extends Command
     {
         $question = new Question('Enter the escaped Unicode string: ');
         $question->setValidator(function ($answer) {
-            if (strpos($answer, '\u') !== 0) {
+            if (!str_starts_with($answer, '\u')) {
                 throw new \RuntimeException('Invalid Unicode string format. It should start with \\u.');
             }
             return $answer;

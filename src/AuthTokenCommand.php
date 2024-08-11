@@ -49,7 +49,7 @@ class AuthTokenCommand extends Command
         $randomString = '';
 
         for ($i = 0; $i < $this->length; $i++) {
-            $randomString .= $characters[rand(0, $charactersLength - 1)];
+            $randomString .= $characters[random_int(0, $charactersLength - 1)];
         }
 
         $output->writeln("Here is your cool authToken: $randomString");

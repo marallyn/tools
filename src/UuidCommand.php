@@ -81,7 +81,7 @@ class UuidCommand extends Command
                     $count++;
                     $output->writeln(sprintf("%s", $uuid));
                 }
-            } catch (Throwable $e) {
+            } catch (Throwable) {
                 $output->writeln(sprintf("uuid version %d is not currently supported.", $this->version));
 
                 return Command::FAILURE;
